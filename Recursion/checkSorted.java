@@ -2,7 +2,6 @@ package recursion;
 
 public class checkSorted {
 	
-	
 	static boolean checkSorted(int input[]) {
 		if(input.length <= 1) {
 			return true;
@@ -49,13 +48,32 @@ public class checkSorted {
 		}
 		else {
 			return true;
-		}		
+		}
 	}
 	
-
+	
+	
+	
+	static boolean checkSortedBetter(int[] arr, int startIndex) {
+//		better in terms of space
+		if(startIndex == arr.length-1) {
+			return true;
+		}
+		
+		if(arr[startIndex] > arr[startIndex+1]) {
+			return false; 
+		}
+		
+		boolean smallAns = checkSortedBetter(arr, startIndex+1);
+		return smallAns;
+	}
+	
+	
+	
 	
 	public static void main(String[] args) {
 			int arr[] = {2,4,1,6,9,5};
-			System.out.println(checkSorted2(arr));
+			int arr2[] = {1,2,3,4,5,6,7,8};
+			System.out.println(checkSortedBetter(arr2,0));
 	}
 }
