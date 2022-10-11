@@ -38,13 +38,44 @@ o
 
 
 public class Solution {
-
 	public static void printSubstrings(String str) {
-		//Your code goes here
-    for(int i=0; i<str.length(); i++){
-      for(int j=i+1 ; j<= str.length(); j++ ){
-        System.out.println(str.substring(i,j));
-      }
-    }
+	//Your code goes here
+    		for(int i=0; i<str.length(); i++){
+      			for(int j=i+1 ; j<= str.length(); j++ ){
+        			System.out.println(str.substring(i,j));
+      			}
+    		}
 	}
 }
+
+
+
+
+
+
+/*
+
+public class PrintAllSubstrings {
+
+      public static void printSubstrings(String str){
+     /* for(int start=0;start<str.length();start++){
+          //We will be printing all substrings starting with char at index start
+          for(int end=start;end<str.length();end++){
+              System.out.println(str.substring(start,end+1));
+          }
+      }*/ /*
+      for(int len=1;len<=str.length();len++){
+          //We have to print all strings wih length as "len"
+          for(int start=0;start<=str.length()-len;start++){
+              int end=start+len-1;
+              System.out.println(str.substring(start,end+1));
+          }
+      }
+}
+    
+    public static void main(String args[]) {
+        String str="pqrs";
+        printSubstrings(str);
+}
+}
+*/
