@@ -41,18 +41,22 @@ public class sort_01 {
 
 	public static void sort_01(int arr[]) {
 		
-		for(int i=0; i<arr.length; i++) {
-			if(arr[i] == 1) {
-				for(int j=arr.length-1; j>i; j--) {
-					
-					if(arr[j] == 0) {
-						int temp = arr[i];
-						arr[i] = arr[j];
-						arr[j] = temp;
-					}
-				}
-			}
-		}
+		int zeroPos = 0;
+        	int cur = 0;
+        
+        	for(int i=0; i<arr.length; i++){
+            		if(arr[i] == 0){
+                		int t = arr[zeroPos];
+                		arr[zeroPos] = arr[cur];
+                		arr[cur] = t;
+                		zeroPos++;
+                		cur++;
+            		}
+            		else{
+                		cur++;
+            		}    
+        	}
+		
 		print(arr);
 	}
 	
