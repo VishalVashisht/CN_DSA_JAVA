@@ -44,32 +44,25 @@ Sample Output 3:
 
 // Solution - 
 
-import java.util.*;
+
 public class Solution {  
 
     public static int secondLargestElement(int[] arr) {
     	//Your code goes here
-        if(arr.length <= 1){
-            return Integer.MIN_VALUE;
-        }
+        if (arr.length == 0) { 
+            return Integer.MIN_VALUE; 
+        } 
+        int largest = arr[0], secondLargest = Integer.MIN_VALUE;
         
-        
-        for(int i=1; i<arr.length; i++) {
-			for(int j=i; j>0; j--) {
-				if(arr[j] < arr[j-1]) {
-					int temp = arr[j];
-					arr[j] = arr[j-1];
-					arr[j-1] = temp;
-				}
-			}
-		}
-        
-        boolean allEqual = Arrays.stream(arr).distinct().count() == 1;
-        if(allEqual){
-            return Integer.MIN_VALUE;
-        }
-        
-		return arr[arr.length-2];
+        for (int i = 1; i < arr.length; i++) {
+            if (largest < arr[i]) {
+                secondLargest = largest;
+                largest = arr[i];
+            } 
+            else if (secondLargest < arr[i] && arr[i] != largest){
+                secondLargest = arr[i]; 
+            }
+        } 
+        return secondLargest;
     }
-
 }
