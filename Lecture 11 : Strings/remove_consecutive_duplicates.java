@@ -25,18 +25,28 @@ Time Limit: 1 second
 
 
 
+
 public class Solution {
 
 	public static String removeConsecutiveDuplicates(String input) {
 		//Your code goes here
-        String result = "";
-		char ch = input.charAt(0);
-		result += ch;
-		for(int i = 1;i < input.length();i++) {
-			if(input.charAt(i) == ch);
-			else 
-				result += input.charAt(i);
-			ch = input.charAt(i);
+        	// String result = "";
+		// char ch = input.charAt(0);
+		// result += ch;
+		// for(int i = 1;i < input.length();i++) {
+		// 	if(input.charAt(i) == ch);
+		// 	else 
+		// 		result += input.charAt(i);
+		// 	ch = input.charAt(i);
+		// }
+
+		String result = "";
+		result += input.charAt(0);
+		
+		for(int i=0; i<input.length(); i++){
+			if(input.charAt(i) != result.charAt(result.length()-1)){
+				result+=input.charAt(i);
+			}
 		}
 		return result;
 	}
