@@ -21,3 +21,41 @@ Sample Output :
 
 // Solution - 
 
+
+
+public class Solution {
+
+	public static int[] allIndexes(int input[], int x) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Return output and don't print it.
+	 	 * Taking input and printing output is handled automatically.
+		*/
+		return helper(input, x, 0);
+	}
+    
+    private static int[] helper(int arr[], int x, int si){
+        if(si == arr.length){
+            int arrT[] = new int[0];
+            return arrT;
+        }
+        
+        int sa[] = helper(arr, x, si+1);
+        
+        if(arr[si] == x){
+            int arrN[] = new int[sa.length+1];
+            arrN[0] = si;
+            
+            for(int i=0; i<sa.length; i++){
+                arrN[i+1] = sa[i];
+            }
+            
+            return arrN;
+        }
+        else{
+            return sa;
+        }
+		
+    }
+}
