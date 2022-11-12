@@ -33,6 +33,8 @@ Sample Output 2 :
 10
 */
 
+/// Take care of the corner case 1-1-2-2-2-2-Null
+
 
 /*
 
